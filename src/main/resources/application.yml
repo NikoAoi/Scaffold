@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: springboot
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      username: root
+      password: 123123
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+  thymeleaf:
+    prefix: classpath:/templates/ #MVC View的所在位置，即Controller层返回的页面所在的文件夹
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    cache: false
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  #mvc:
+    #view:
+      #prefix: /templates/
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: model

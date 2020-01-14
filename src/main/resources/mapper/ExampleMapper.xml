@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="app.mapper.ExampleMapper">
+    <!--当 resultType 为model类时，model类成员变量名与对应的数据库表属性名必须相同-->
+    <!--也可通过自定义resultMap解决，具体看staruniverse项目-->
+    <select id="getExampleModel" parameterType="String" resultType="app.model.ExampleModel">
+        SELECT * FROM example WHERE col_1 = #{col_1}
+    </select>
+
+    <select id="getCol2" parameterType="String" resultType="String">
+        SELECT clo_2 FROM example WHERE col_1 = #{col_1}
+    </select>
+</mapper>
